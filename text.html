@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*数据变换面试题：
+            let arr = [
+                {名称:'动物',id:1,parent:null},
+                {名称:'狗',id:2,parent:1},
+                {名称:'猫',id:3,parent:1}
+            ]
+            数组变成对象
+            {
+                id:1,名称:'动物',children:[
+                    {id:2,名称：'狗',children:null},
+                    {id:3,名称：'猫',children:null},
+                ]
+            }*/
+        let arr = [
+            { 名称: '动物', id: 1, parent: null },
+            { 名称: '狗', id: 2, parent: 1 },
+            { 名称: '猫', id: 3, parent: 1 }
+        ]
+        let arr2 = arr.reduce((result, item) => {
+            if (item.parnet === null) {
+                result.id = item.id
+                result['名称'] = item['名称']
+            } else {
+                result.children.push(item)
+                delete item.parent
+                item.children = null
+            }
+        }, { id: null, children: [] })
+        // let arr2 = arr.reduce((result, item) => {
+        //     if (item.parent === null) {
+        //         result.id = item.id
+        //         result['名称'] = item['名称']
+        //     } else {
+        //         result.children.push(item)
+        //         delete item.parent
+        //         item.children = null
+        //     }
+        // }, { id: null, children: [] })
+        // console.log(arr2)
+
+
+        let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        // let scores2 = scores.reduce((result, item) => result.concat(item > 60 ? item : null), [])
+        let scores2 = scores.reduce((result, item) => {
+            if (item > 60) {
+                return result.concat(item)
+            } else {
+                return result
+            }
+        }, [])
+
+
+    </script>
+</body>
+
+</html>

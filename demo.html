@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr = ['a', 'b', 'c']
+        // delete arr['0']
+        // arr//[empty,'b','c'],数组的长度没有被改变
+        // let arr = [1, 2, 3, 4, 5, 6]
+        // arr.length = 2
+        // arr//[1,2],改变了数组的长度，JS会直接把后面的元素删除
+        // let arr = [1, 2, 3]
+        // arr.shift()//弹出第一个元素，并返回被删元素
+        // arr//[2,3]
+        // let arr = [1, 2, 3]
+        // arr.pop()//弹出最后一个元素，并返回被删元素
+        // arr//[1,2]
+        // let arr = [1, 2, 3, 4, 5, 6, 7, 8]
+        // arr.splice(2, 1)//从下标为‘2’的位置删除一个元素
+        // arr//[1,2,4,5,6,7,8]
+        // arr.splice(2, 1, 666)//从下标为‘2’的位置删除一个元素，并在这个位置增加‘666’
+        // let arr = [1, 2, 3, 4, 5]
+        // for (let i = 0; i < arr.length; i++) {
+        //     console.log(`${i}:${arr[i]}`)
+        // }
+        // arr.forEach(function (xxx, yyy) {
+        //     console.log(`${yyy}:${xxx}`)
+        // })
+
+        // function forEach(array, fn, array) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         fn(array[i], i, array)
+        //     }
+        // }
+        // forEach([1, 2, 3], fn(x, y){
+        //     console.log(`${y}:${x}`)
+        // })
+        // let arr = [1, 2, 3]
+        // arr[0]
+        // arr[arr.length] === undefined
+        // arr[-1] === undefined
+        // arr.indexOf(item)//存在则返回索引，否则返回-1
+        // arr.findIndex(item => item % 2 === 0)//找出第一个偶数的索引
+        // arr.push(new item)//修改arr，返回新长度
+        // arr.unshift(new item)//修改arr，返回新长度
+        // arr.splice(index, 0, 'x')//在index处插入'x'
+        // arr.reverse()//修改原数组
+        // arr.sort((a, b) => a - b)
+        // // 有一个字符串abcde，需要把它变成edcba
+        // let s = 'abcde'
+        // s.split('')//将s转化为数组
+        // s.split('').reverse()//将数组顺序反转
+        // s.split('').reverse.join('')//最后用空字符串合为字符串
+        // let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        // let scores2 = scores.filter(item => item > 60 ? true : false)
+        // let arr = [0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 6]
+        // let arr2 = arr.map((i) => { return { 0: '周日', 1: '周一', 2: '周二', 3: '周三', 4: '周四', 6: '周五' }[i] })
+        //     let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        // let scores2 = scores.reduce((scores, item) => scores.concat(item > 60 ? item : []), [])
+        let arr = [0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 6]
+        let arr2 = arr.map((i) => {
+            let s = { 0: '周日', 1: '周一', 2: '周二', 3: '周三', 4: '周四', 5: '周五', 6: '周六' }
+            return s[i]
+        })
+        let scoress = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        let sum = scoress.reduce((sum, n) => {
+            n % 2 === 0 ? sum : sum + n
+        }, 0)
+        console.log(sum)//求出奇数的和
+        let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        let scores2 = scores.filter(item => item > 60)
+        console.log(scores2) //  [95,91,82,72,85,67,66, 91]
+    </script>
+</body>
+
+</html>
